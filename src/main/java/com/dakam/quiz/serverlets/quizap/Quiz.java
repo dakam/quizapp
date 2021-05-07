@@ -24,17 +24,11 @@ public class Quiz extends HttpServlet {
         if(quiz == null) {
             session.setAttribute("quiz", new Thequiz());
 
-
         }
         Thequiz myquiz = (Thequiz) session.getAttribute("quiz");
 
         String ans = request.getParameter("ans");
         String pseq = request.getParameter("pseq");
-
-
-        //String nn = "2, 3, 5, 7, 11";
-        //System.out.println(ans +" ans and seq="+nn);
-       // System.out.println("hhh="+myquiz.getQuizMap().get(pseq.trim()));
 
         if(ans != null && !ans.equals("") && pseq !=null && !pseq.equals("")) {
 
@@ -43,8 +37,6 @@ public class Quiz extends HttpServlet {
            int cans = (int) myquiz.getQuizMap().get(pseq);
             myquiz.addAnswered();
             myquiz.RecorddoneQuiz(pseq);
-            System.out.println("my answer ="+ans+" correct="+cans);
-
 
             if(Integer.valueOf(ans) == cans) {
 
@@ -56,10 +48,6 @@ public class Quiz extends HttpServlet {
            }
 
         }
-
-
-
-
 
 
             marks = myquiz.getMarks();
@@ -126,10 +114,6 @@ public class Quiz extends HttpServlet {
                 out.println("</div>");
                 out.println("</body></html>");
             }
-
-
-
-
 
 
 
